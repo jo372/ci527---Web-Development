@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" as="font" href="./assets/fonts/Aller_Bd.ttf">
+    <link rel="preload" as="font" href="./assets/fonts/Aller_Rg.ttf">
+    <link rel="stylesheet" href="./assets/css/dropdown.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/record.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="records-container">
+        <!-- form to make request -->
+        <div class="top-navbar">
+            <form id="searchForm">
+                <label for="searchBar" class="hidden">Search</label>
+                <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
+            </form> 
+            <div id="categories"></div>
+        </div>
+        <!-- <div class="records masonry-container"></div> -->
+        <div class="records"></div>
+        <p id="errorMessage"></p>
+        
+    </div>
+
+    <script src="./assets/js/helperfunctions.js"></script>
+    <script src="./assets/js/dropdown.js"></script>
+    <script src="./assets/js/record.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

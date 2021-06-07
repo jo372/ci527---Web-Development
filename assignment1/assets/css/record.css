@@ -1,0 +1,211 @@
+@font-face {
+    font-family: aller_bold;
+    src: url(../fonts/Aller_Bd.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: aller_regular;
+    src: url(../fonts/Aller_Rg.ttf) format('truetype');
+}
+
+:root {
+    --green: green;
+    --cover-background-color:#121212;
+    --cover-hover-background-color: var(--black);
+    --categories-color: #666;
+    --source-link-color: var(--categories-color);
+}
+
+.records-container {
+    background-color: var(--black);
+    width:100%;
+    height:100%;
+    overflow-x:scroll;
+}
+
+.records {
+    background-color: var(--dark-grey);
+    width:100%;
+    height:auto;
+    overflow: auto;
+    margin-top:var(--navbar-height);
+    display:grid;
+    grid-template-columns: 100%;
+}
+  
+.record {
+    position:relative;
+    overflow: hidden;
+}
+
+.record .recordURL {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+  
+.record .recordImage {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.record .cover {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:var(--cover-background-color);
+    z-index:1;
+    opacity:0;
+}
+
+.record.inactive .cover {
+    -webkit-animation: fadeIn 0.15s 1 normal forwards;
+    -o-animation: fadeIn 0.15s 1 normal forwards;
+    -moz-animation: fadeIn 0.15s 1 normal forwards;
+    animation: fadeIn 0.15s 1 normal forwards;
+}
+
+.record .progressBar {
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:0%;
+    height:5px;
+    background-color:var(--green);
+    z-index:10;
+}
+  
+.record .back {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    z-index: 2;
+    color: var(--white);
+    background-color: var(--cover-hover-background-color);
+    -webkit-transition:opacity 0.15s ease-out;
+    -moz-transition:opacity 0.15s ease-out;
+    -o-transition:opacity 0.15s ease-out;
+    transition:opacity 0.15s ease-out;
+}
+
+.record.active:hover .back,
+.record.active[data-istouched="true"] .back {
+    opacity:1;
+    display:block;
+}
+
+.record .back .content {
+    width:75%;
+    display:block;
+    margin:0 auto;
+    margin-top:60px;
+    opacity:0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.record.active:hover .back .content,
+.record.active[data-istouched="true"] .back .content  {
+    margin-top:40px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    opacity:1;
+}
+
+.record .back .content p
+{
+    font-family:aller_normal, arial, sans-serif;
+    font-size: 0.7em;
+}
+
+.record .back .content p,
+.record .back .content h3.title {
+    margin:0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.record .back .content a.source {
+    color:inherit;
+	text-decoration:none;
+    color: var(--source-link-color);
+    float:right;
+}
+
+.record .back .content a.source, 
+.record .back .content .categories h4,
+.record .back .content h3.title
+{
+	line-height:20px;
+    font-family:aller_bold, arial, sans-serif;
+}
+
+.record .back .content a.source, 
+.record .back .content .categories h4 {
+    font-size:0.6em;
+}
+
+.record .back .content .categories h4 {
+    color: var(--categories-color);
+	letter-spacing:0.1em;
+}
+
+.record .back .content a.source,
+.record .back .content .categories h4,
+.record .back .content h3.title
+{
+	text-transform:uppercase;
+	font-weight:normal;
+}
+
+/* Mobile first queries */
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+    .records {
+        grid-template-columns: calc(100%/2) calc(100%/2);
+    }
+  }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    .records {
+        grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
+    }
+    .record.active:hover .back .content,
+    .record.active[data-istouched="true"] .back .content {
+        margin-top:40px;
+    }
+  }
+  
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+    .record .back .content p {
+        font-size: 0.9em;
+    }
+  }
+  
+  /* Larger than desktop */
+  @media (min-width: 1000px) {
+    .records {
+        grid-template-columns: calc(100%/4) calc(100%/4) calc(100%/4) calc(100%/4);
+    }
+  }
+  
+  /* Larger than Desktop HD */
+  @media (min-width: 1200px) {
+  }
+  
+  
